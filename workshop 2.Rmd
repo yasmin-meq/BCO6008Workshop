@@ -15,4 +15,29 @@ library(skimr)
 
 survey <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-18/survey.csv')
 
+survey%>% 
+  head()
+
+survey%>%
+  skim()
+
+survey%>%
+  distinct(how_old_are_you)
+
+survey%>%
+  count(how_old_are_you)
+
+survey%>%
+  filter(industry=="Computing or Tech") 
+
+survey%>%
+  group_by(industry)%>%
+  summarise(mean_salary=mean(annual_salary))
+
+survey%>%
+  arrange(how_old_are_you)
+
+survey%>%
+  relocate(how_old_are_you,.before = timestamp)
+  
 ```
